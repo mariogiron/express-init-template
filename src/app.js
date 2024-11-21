@@ -10,6 +10,13 @@ app.use(cors());
 // Ex.
 // app.use('/api', require('./routes/api'));
 
+// 404 handler
+app.use((req, res, next) => {
+    res.status(404).json({
+        message: 'Not found'
+    });
+})
+
 // Error handler
 app.use((err, req, res, next) => {
     console.error(err.stack)
