@@ -19,9 +19,3 @@ server.on("listening", () => {
 server.on("error", (error) => {
     console.log(error);
 });
-
-function sumar(a, b) {
-    return a + b;
-}
-
-sumar();
