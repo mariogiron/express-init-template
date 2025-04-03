@@ -22,6 +22,10 @@
     "linter": {
         "enabled": true,
         "rules": {
+            "suspicious": {
+                "noRedeclare": "off",
+                "noGlobalIsNan": "off"
+            },
             "correctness": {
                 "recommended": true
             },
