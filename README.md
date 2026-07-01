@@ -4,11 +4,20 @@ This is a basic Express application template designed to help you create APIs
 quickly. It includes essential configurations and setup for starting an Express
 server.
 
+> **⚠️ Note:** Since `v2.0.0` this template uses **ES Modules (ESM)** syntax
+> (`import`/`export`). If you need the legacy CommonJS version
+> (`require`/`module.exports`), clone the `v1.5.0-cjs` tag:
+>
+> ```bash
+> git clone -b v1.5.0-cjs https://github.com/mariogiron/express-init-template.git project-name
+> ```
+
 ## Features
 
-- Basic Express server setup
+- Basic Express server setup with **ES Modules**
 - CORS enabled
 - Environment configuration with `.env` support
+- Linting and formatting with [Biome](https://biomejs.dev/)
 
 ## Getting Started
 
@@ -73,9 +82,8 @@ npm run dev
 - **start**: Runs `node index.js` to start the server.
 - **dev**: Runs `nodemon index.js` to start the server in development mode with
   automatic restarts on file changes.
-- **generate**: Runs `express generate` to create any resource inside your
-  project. The actions available are "model", "controller", "route", "all"
-- **config**: Runs `express config` to config the date of your project.
+- **lint**: Runs `biome lint` to check the code for issues.
+- **format**: Runs `biome check --write` to format the code and fix issues.
 
 ### Project Structure
 
@@ -88,6 +96,16 @@ npm run dev
     ├── index.js            # Server creation and configuration
     ├── package.json        # Project metadata and dependencies
 
+### Adding Routes
+
+Routes are imported using ESM syntax. Remember to include the `.js` extension:
+
+```js
+// src/app.js
+import apiRoutes from "./routes/api.routes.js";
+app.use("/api", apiRoutes);
+```
+
 ### Contributing
 
 Feel free to submit issues and pull requests to improve the project. For major
@@ -95,5 +113,5 @@ changes, please open an issue first to discuss what you would like to change.
 
 ### License
 
-This project is licensed under the ISC License - see the LICENSE file for
+This project is licensed under the MIT License - see the LICENSE file for
 details.
