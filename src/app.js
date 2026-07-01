@@ -1,6 +1,6 @@
 // Creation and configuration of the Express APP
-const express = require("express");
-const cors = require("cors");
+import express from "express";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
@@ -8,7 +8,8 @@ app.use(cors());
 
 // Route configuration
 // Ex.
-// app.use('/api', require('./routes/api.routes'));
+// import apiRoutes from "./routes/api.routes.js";
+// app.use("/api", apiRoutes);
 
 // 404 handler
 app.use((req, res, next) => {
@@ -23,4 +24,4 @@ app.use((err, req, res, next) => {
     res.status(500).json({ message: err.message });
 });
 
-module.exports = app;
+export default app;
