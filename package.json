@@ -4,11 +4,12 @@
   "type": "module",
   "description": "This is a basic Express application template designed to help you create APIs quickly. It includes essential configurations and setup for starting an Express server.",
   "main": "index.js",
+  "engines": {
+    "node": ">=22.9"
+  },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "lint": "biome lint",
-    "format": "biome check --write"
+    "start": "node --env-file-if-exists=.env index.js",
+    "dev": "node --env-file-if-exists=.env --watch index.js"
   },
   "keywords": [
     "express",
@@ -19,12 +20,9 @@
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
     "express": "^5.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@types/express": "^5.0.0",
-    "nodemon": "^3.0.1"
+    "@types/express": "^5.0.0"
   }
 }

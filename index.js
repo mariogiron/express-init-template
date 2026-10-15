@@ -1,5 +1,4 @@
 // Server creation and configuration
-import "dotenv/config";
 import http from "node:http";
 import app from "./src/app.js";
 

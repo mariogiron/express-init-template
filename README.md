@@ -16,14 +16,14 @@ server.
 
 - Basic Express server setup with **ES Modules**
 - CORS enabled
-- Environment configuration with `.env` support
-- Linting and formatting with [Biome](https://biomejs.dev/)
+- Native `.env` loading (`--env-file-if-exists`), no `dotenv`
+- Native file watching (`--watch`), no `nodemon`
 
 ## Getting Started
 
 ### Prerequisites
 
-Ensure you have Node.js and npm installed on your machine. You can download them
+Ensure you have Node.js (v22.9 or later) and npm installed on your machine. You can download them
 from [Node.js official website](https://nodejs.org/).
 
 ### Installation
@@ -70,8 +70,8 @@ default to port 3000 if not specified.
 
 #### Development mode
 
-To start the server in development mode with `nodemon`, which will automatically
-restart the server on file changes, run:
+To start the server in development mode with Node's native `--watch`, which will
+automatically restart the server on file changes, run:
 
 ```bash
 npm run dev
@@ -79,11 +79,9 @@ npm run dev
 
 ### Available Scripts
 
-- **start**: Runs `node index.js` to start the server.
-- **dev**: Runs `nodemon index.js` to start the server in development mode with
-  automatic restarts on file changes.
-- **lint**: Runs `biome lint` to check the code for issues.
-- **format**: Runs `biome check --write` to format the code and fix issues.
+- **start**: Runs `node --env-file-if-exists=.env index.js` to start the server.
+- **dev**: Runs `node --env-file-if-exists=.env --watch index.js` to start the
+  server in development mode with automatic restarts on file changes.
 
 ### Project Structure
 
